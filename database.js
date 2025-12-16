@@ -27,14 +27,14 @@ connection.connect((error) => {
 
 // "MySQL" adding data:
 // function to insert client data
-// names from the "excel" teacher provide it.
+// names from the "excel" teacher provide it. snake-case
 function insertClient(client) {
   const sql = `
     INSERT INTO mysql_table
     (first_name, last_name, email, phone, eir_code)
     VALUES (?, ?, ?, ?, ?)
   `;
-// (same) names from the "excel" teacher provide it.
+// (same) names from the "excel" teacher provide it. snake-case
   connection.query(sql, [
     client.first_name,
     client.last_name,
