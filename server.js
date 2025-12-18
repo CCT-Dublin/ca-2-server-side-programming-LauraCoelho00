@@ -16,14 +16,25 @@ app.use(bodyParser.json());
 // serve static files (form.html, javascript.js)
 app.use(express.static(__dirname));
 
+// middleware to log incoming requests
+app.use((req, res, next) => {
+  console.log(req.method, req.url);
+  next();
+});
+
 // POST route to receive form data
 app.post('/submit', (req, res) => {
   console.log('Received client data:', req.body); // debug in terminal
-  insertClient(req.body);                          // insert into MySQL
+  insertClient(req.body);                       // insert into MySQL
   res.sendStatus(200);
 });
 
 // start server - important for localhost
-app.listen(3000, () => {
-  console.log('Server running at http://localhost:3000');
+// task C
+app.listen(3000, (err) => {
+  if (err) {
+    console.log('Server failed to start:', err);
+  } else {
+    console.log('Server running at http://localhost:3000');
+  }
 });
