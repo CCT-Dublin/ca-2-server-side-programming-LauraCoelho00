@@ -11,6 +11,7 @@ fs.readFile('Clients.csv', (err, data) => {
 
   csv.parse (data, { columns: true, trim: true }, (err, rows) => {
     if (err) throw err; 
+    
 
     rows.forEach((row, index) => {
                                    // validate CSV row

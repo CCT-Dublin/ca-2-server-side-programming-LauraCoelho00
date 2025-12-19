@@ -38,3 +38,12 @@ app.listen(3000, (err) => {
     console.log('Server running at http://localhost:3000');
   }
 });
+// for Task D, basic security header called CSP
+app.use((req, res, next) => {
+res.setHeader(
+  "Content-security-policy",
+  "default-src 'self' "
+);
+next();
+
+});

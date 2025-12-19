@@ -31,7 +31,7 @@ connection.connect((error) => {
 function insertClient(client) {
   const sql = `
     INSERT INTO mysql_table
-    (first_name, last_name, email, phone, eir_code)
+    (first_name,last_name,email,phone,eir_code)
     VALUES (?, ?, ?, ?, ?)
   `;
 // (same) names from the "excel" teacher provide it. snake-case
